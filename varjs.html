@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js varible data type 
+
+        //primitive : immutable single value types
+
+        //primitive data type : immutable single value and  stores in stack memory
+
+        //string---
+        var myName  ="himanshu";
+        console.log("my name is " + myName);
+        console.log(typeof(myName));
+
+        //number
+        var myAge = 25;
+        console.log("my age is " + myAge);
+        console.log(typeof(myAge));
+
+        //boolean
+        var isMarrid = false;
+        console.log("is marrid "+ isMarrid);
+        console.log(typeof(isMarrid));
+
+        ////undefined
+        var myAddress;
+        console.log(myName + " My address is " + myAddress);
+        console.log(typeof (myAddress));
+
+        //null
+        var myEmail = null;
+        console.log(myName + " My email is " + myEmail);
+        console.log(typeof (myEmail));
+
+        //bright
+        var myValue = "1234567890";
+        console.log("my value is " + myValue);
+        console.log(typeof(myValue));
+        //symbol
+        var value1 =Symbol("hello");
+        var value2 =Symbol("hello");
+        console.log(value1);
+        console.log(value2);
+        console.log(value1 === value2); // false, symbols are unique
+
+        
+        let myinfo={
+            name:"himanshu",
+            age:"19",
+            isStudent:true,
+            mob:"6398649323",
+            myAddress:"hapur",
+            branch:"cse",
+            section:"cse18",
+
+            
+        }
+        console.log(myinfo);
+        //array: collection of any data type in js
+        let studentdetails = {
+            name:"himanshu",
+            age:19,
+            isStudent:true,
+            mob:"6398649323",
+            myAddress:"hapur"
+        }
+        console.log(studentdetails);
+        console.log(studentdetails.length);
+
+        for(i=0; i<Object.keys(studentdetails).length; i++){
+            console.log(Object.values(studentdetails)[i]);
+        }
+//function
+function mycal(a,b){
+    let num1 =5;
+    num2 = 10;
+    let result = num1+num2;
+    console.log("addition of two number is "+ result);
+
+
+}
+    </script>
+    
+</body>
+</html>
