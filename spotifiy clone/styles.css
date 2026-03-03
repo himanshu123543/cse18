@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+body{
+    background-color: antiquewhite;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+nav{
+    font-family: 'Ubuntu',sans-serif;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.6);
+
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    height: 65px;
+    background-color: black;
+    color: white;
+}
+
+nav ul li{
+    padding: 0px 12px;
+}
+
+
+.brand img{
+    width: 44px;
+    padding: 0px 8px;
+
+}
+
+.brand{
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+.container{
+    min-height: 72vh;
+    background-color: rgba(0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    width: 70%;
+    margin: 23px auto;
+    border-radius: 12px;
+    padding: 34px;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.bottom{
+    position: relative;
+    height: 130px;
+    bottom: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+   
+    
+}
+
+.icons{
+    display:flex;
+align-items:center;
+gap:20px;
+    margin-top: 14px;
+
+}
+.icons i{
+    cursor: pointer;
+    margin:10px;
+
+    
+}
+.icons i:hover{
+    transform: scale(1.2);
+    transition: 0.2s;
+    
+    color: #1db954;
+}
+#myProgressBar{
+    width: 80vw;
+    cursor: pointer;
+    accent-color: #1db954;
+
+
+}
+
+.songItemContainer{
+    margin-top: 74px;
+}
+
+.songItem{
+    height: 50px;
+    display: flex;
+    background-color: white;
+    width: 80%;
+    color: black;
+    margin: 12px 0px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 34px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    
+}
+
+.songItem img{
+    width: 43px;
+    margin: 0px 23px;
+    border-radius: 34px;
+    
+}
+.songItem:hover{
+    transform: scale(1.03);
+    transition: 0.3s;
+    background-color: #1db954;
+    color: white;
+    
+}
+
+.timestamp{
+    margin: 0px 23px;
+}
+.timestamp i{
+    cursor: pointer;
+}
+
+.songInfo{
+    position: absolute;
+    left: 10vw;
+    font-family: 'Varela Round', sans-serif;
+    color: #1db954;
+    
+   
+
+
+}
+.songInfo img{
+    opacity: 0;
+    transition: opacity 0.8s ease-in;
+
+}
+#currentTime{
+    margin-left: 10px;
+    font-size: 14px;
+    color: #1db954;
+}
+#songTime{
+    margin-left: 12px;
+    font-size: 14px;
+    color: #1db954;
+    font-weight: bold;
+}
+
+.activeSong{
+    background-color: #1db954;
+    color: white;
+}
+#volumeBar{
+width:200px;
+margin-top:10px;
+accent-color:#21c4fb;
+}
+.extraControls{
+position:absolute;
+right:10vw;
+top:40px;
+}
+
+#shuffle{
+font-size:22px;
+cursor:pointer;
+color:white;
+background-color: rgb(9, 198, 251);
+
+}
+
+#shuffle:hover{
+color:#1db954;
+transform:scale(1.2);
+transition:0.2s;
+}
+
