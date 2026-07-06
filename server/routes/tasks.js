@@ -90,17 +90,16 @@ router.post('/', authenticate, async (req, res) => {
       return res.status(404).json({ success: false, message: 'Project not found' });
     }
 
-    const task = await Task.create({
-      title,
-      description,
-      project,
-      assignee,
-      createdBy: req.userId,
-      priority,
-      dueDate,
-      tags: tags || []
-    });
-
+   const task = await Task.create({
+  title,
+  description,
+  project,
+  assignee: assignee && assignee.trim() !== "" ? assignee : undefined,
+  createdBy: req.userId,
+  priority,
+  dueDate,
+  tags: tags || []
+});
     const populatedTask = await Task.findById(task._id)
       .populate('assignee', 'name email avatar')
       .populate('createdBy', 'name email avatar')
@@ -115,26 +114,59 @@ router.post('/', authenticate, async (req, res) => {
 // UPDATE task
 router.put('/:id', authenticate, async (req, res) => {
   try {
-    const { title, description, status, priority, assignee, dueDate, tags, timeSpent } = req.body;
+    const {
+      title,
+      description,
+      status,
+      priority,
+      assignee,
+      dueDate,
+      tags,
+      timeSpent
+    } = req.body;
 
     const task = await Task.findById(req.params.id);
     if (!task) {
-      return res.status(404).json({ success: false, message: 'Task not found' });
+      return res.status(404).json({
+        success: false,
+        message: 'Task not found'
+      });
     }
 
     const updatedTask = await Task.findByIdAndUpdate(
       req.params.id,
-      { title, description, status, priority, assignee, dueDate, tags, timeSpent },
-      { new: true, runValidators: true }
+      {
+        title,
+        description,
+        status,
+        priority,
+        assignee:
+          assignee && assignee.trim() !== ""
+            ? assignee
+            : undefined,
+        dueDate,
+        tags,
+        timeSpent
+      },
+      {
+        new: true,
+        runValidators: true
+      }
     )
-    .populate('assignee', 'name email avatar')
-    .populate('createdBy', 'name email avatar')
-    .populate('comments.user', 'name email avatar')
-    .populate('project', 'name');
+      .populate('assignee', 'name email avatar')
+      .populate('createdBy', 'name email avatar')
+      .populate('comments.user', 'name email avatar')
+      .populate('project', 'name');
 
-    res.json({ success: true, data: updatedTask });
+    res.json({
+      success: true,
+      data: updatedTask
+    });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
   }
 });
 

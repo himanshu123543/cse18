@@ -58,14 +58,20 @@ export default function ProjectBoard() {
     e.preventDefault();
     if (!form.title.trim()) return;
 
-    const res = await authFetch('/api/tasks', {
-      method: 'POST',
+   const res = await authFetch('/api/tasks', {
+     method: 'POST',
       body: JSON.stringify({
-        ...form,
-        project: id,
-        tags: form.tags ? form.tags.split(',').map(t => t.trim()).filter(Boolean) : []
-      })
-    });
+       title: form.title,
+       description: form.description,
+        status: form.status,
+      priority: form.priority,
+      dueDate: form.dueDate,
+       project: id,
+      tags: form.tags
+      ? form.tags.split(",").map(t => t.trim()).filter(Boolean)
+      : []
+  })
+});
 
     if (res.success) {
       toast.success('Task created');
@@ -101,7 +107,7 @@ export default function ProjectBoard() {
     if (!commentText.trim()) return;
     const res = await authFetch(`/api/tasks/${selectedTask._id}/comments`, {
       method: 'POST',
-      body: JSON.stringify({ text: commentText })
+     body: JSON.stringify({ text: commentText })
     });
     if (res.success) {
       setCommentText('');

@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FiPlus, FiSearch, FiMoreVertical, FiEdit2, FiTrash2 } from 'react-icons/fi';
+import {
+  FiPlus,
+  FiSearch,
+  FiMoreVertical,
+  FiEdit2,
+  FiTrash2,
+  FiFolder,
+  FiCheckSquare
+} from "react-icons/fi";
 import toast from 'react-hot-toast';
 
 const PROJECT_COLORS = ['#E8A838', '#10B981', '#06B6D4', '#A855F7', '#EF4444', '#F97316', '#EC4899', '#14B8A6'];
@@ -248,7 +256,8 @@ export default function Projects() {
         </div>
       )}
 
-      <style>{`
+      <style>
+        {`
         .dropdown-menu {
           position: absolute;
           background: var(--bg-elevated);
